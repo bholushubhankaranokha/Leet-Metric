@@ -1,50 +1,348 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leet Metric</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetMetric</title>
+    <!-- Quantum Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%2300ffff' stroke-width='2' stroke-dasharray='5 3'/%3E%3Cpath d='M30 50 L70 50 M50 30 L50 70' stroke='%23ff00ff' stroke-width='2'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Binary Rain Background -->
+    <canvas id="binary-canvas"></canvas>
+    
+    <!-- Neural Network Background -->
+    <div id="neural-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div id="floating-particles"></div>
 
-  <body>
-    <div class="container">
-      <h1>💻 Leet Metric</h1>
-      <p>Enter your username below:</p>
-      <div class="user-input-container">
-        <input type="text" placeholder="Enter your username" id="user-input" />
-        <button id="search-btn">🔍 Search</button>
-      </div>
+    <!-- Hacking Sound (hidden audio element) -->
+    <audio id="hacking-sound" loop preload="auto">
+        <source src="data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD//8kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//sQZAAB8AABIAEAAFIAAElXaW5kb3dzIE1lZGlhIFBsYXllcgAw/////////////////////////////////////////////////////////////////8lQcGEMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="audio/mp3">
+    </audio>
 
-      <div class="stats-container">
-        <div class="progress">
-          <div class="progress-items circle">
-            <div class="easy-progress">
-              <span id="easy-label"></span>
-              Easy
+    <main class="container">
+        <!-- Header with Quantum Social -->
+        <header class="header quantum-panel">
+            <div class="quantum-logo">
+                <div class="quantum-core">
+                    <div class="core-pulse"></div>
+                    <span class="quantum-text">🏆 Bholu Shubhankar Anokha</span>
+                </div>
+                <div class="quantum-ring"></div>
+                <div class="quantum-ring"></div>
+                <div class="quantum-ring"></div>
             </div>
-          </div>
-
-          <div class="progress-items circle">
-            <div class="medium-progress">
-              <span id="medium-label"></span>
-              medium
+            
+            <div class="quantum-social">
+                <!-- GitHub Quantum Orb -->
+                <a href="https://github.com/bholushubhankaranokha" target="_blank" class="quantum-orb github-orb">
+                    <div class="orb-core">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="orb-ring"></div>
+                    <div class="orb-ring"></div>
+                    <div class="orb-ring"></div>
+                    <span class="orb-label">@bholushubhankaranokha</span>
+                </a>
+                
+                <!-- LinkedIn Quantum Orb -->
+                <a href="https://www.linkedin.com/in/bholushubhankaranokha" target="_blank" class="quantum-orb linkedin-orb">
+                    <div class="orb-core">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="orb-ring"></div>
+                    <div class="orb-ring"></div>
+                    <div class="orb-ring"></div>
+                    <span class="orb-label">bholushubhankaranokha</span>
+                </a>
+                
+                <!-- System Status -->
+                <div class="system-status">
+                    <div class="status-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="status-text">QUANTUM ACTIVE</div>
+                    <div class="status-wave"></div>
+                </div>
             </div>
-          </div>
+        </header>
 
-          <div class="progress-items circle">
-            <div class="hard-progress">
-              <span id="hard-label"></span>
-              Hard
+        <!-- Search Interface -->
+        <section class="search-section quantum-panel">
+            <div class="title-section">
+                <h1 class="glitch-main" data-text=">_ LEETMETRIC">>_ LEETMETRIC</h1>
+                <div class="title-scanline"></div>
             </div>
-          </div>
+            
+            <div class="search-quantum">
+                <div class="input-quantum">
+                    <input type="text" id="user-input" placeholder="Enter username to analyze..." autocomplete="off">
+                    <div class="input-hologram"></div>
+                    <div class="input-energy"></div>
+                </div>
+                <button id="search-btn" class="btn-quantum">
+                    <span class="btn-text">INITIALIZE SCAN</span>
+                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                    <div class="btn-energy"></div>
+                </button>
+            </div>
+            
+            <div class="suggestions">
+                <span class="suggestion-quantum" data-username="BholuShubhankarAnokha">
+                    <i class="fa-solid fa-crown"></i> BholuShubhankarAnokha
+                    <div class="suggestion-glow"></div>
+                </span>
+            </div>
+        </section>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard" id="dashboard" style="display: none;">
+            <!-- Quantum Profile with 3D Earth Globe and Floating Brain -->
+            <div class="profile-quantum quantum-panel" id="profile-section">
+                <div class="profile-globe-container">
+                    <div class="globe-3d">
+                        <!-- Earth Globe with Continents (simulated) -->
+                        <div class="globe-sphere">
+                            <div class="globe-continent continent-1"></div>
+                            <div class="globe-continent continent-2"></div>
+                            <div class="globe-continent continent-3"></div>
+                            <div class="globe-continent continent-4"></div>
+                            <div class="globe-clouds"></div>
+                        </div>
+                        <!-- Floating Brain Inside -->
+                        <div class="floating-brain">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <!-- Saturn-like Rings -->
+                        <div class="globe-ring ring-1"></div>
+                        <div class="globe-ring ring-2"></div>
+                        <div class="globe-ring ring-3"></div>
+                        <!-- Orbiting Particles -->
+                        <div class="orbit-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-data-quantum">
+                    <div class="name-quantum">
+                        <span class="quantum-prompt">></span>
+                        <h2 id="display-name">---</h2>
+                        <div class="rank-quantum" id="rank-badge">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span id="rank-value">#---</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-quantum-grid">
+                        <div class="stat-quantum-card">
+                            <div class="stat-quantum-icon"><i class="fa-solid fa-code"></i></div>
+                            <div class="stat-quantum-info">
+                                <span class="stat-quantum-label">TOTAL SOLVED</span>
+                                <span class="stat-quantum-value" id="total-solved">0</span>
+                            </div>
+                            <div class="stat-quantum-glow"></div>
+                        </div>
+                        <div class="stat-quantum-card">
+                            <div class="stat-quantum-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="stat-quantum-info">
+                                <span class="stat-quantum-label">GLOBAL RANK</span>
+                                <span class="stat-quantum-value" id="rank-value-stat">#0</span>
+                            </div>
+                            <div class="stat-quantum-glow"></div>
+                        </div>
+                        <div class="stat-quantum-card">
+                            <div class="stat-quantum-icon"><i class="fa-solid fa-star"></i></div>
+                            <div class="stat-quantum-info">
+                                <span class="stat-quantum-label">CONTRIBUTION</span>
+                                <span class="stat-quantum-value" id="contribution">0</span>
+                            </div>
+                            <div class="stat-quantum-glow"></div>
+                        </div>
+                        <div class="stat-quantum-card">
+                            <div class="stat-quantum-icon"><i class="fa-solid fa-bullseye"></i></div>
+                            <div class="stat-quantum-info">
+                                <span class="stat-quantum-label">ACCURACY</span>
+                                <span class="stat-quantum-value" id="acceptance-rate">0</span>
+                                <span class="stat-unit">%</span>
+                            </div>
+                            <div class="stat-quantum-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Profile Stats -->
+                    <div class="profile-stats-extended">
+                        <div class="extended-stat">
+                            <span class="extended-label">TOTAL QUESTIONS</span>
+                            <span class="extended-value" id="total-questions">0</span>
+                        </div>
+                        <div class="extended-stat">
+                            <span class="extended-label">SUBMISSIONS</span>
+                            <span class="extended-value" id="total-submissions">0</span>
+                        </div>
+                        <div class="extended-stat">
+                            <span class="extended-label">REPUTATION</span>
+                            <span class="extended-value" id="reputation">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Difficulty Bubbles (Liquid Glass) -->
+            <div class="difficulty-bubbles quantum-panel">
+                <h3 class="quantum-title"><i class="fa-solid fa-chart-pie"></i> DIFFICULTY MATRIX</h3>
+                <div class="bubbles-container">
+                    <!-- Easy Bubble -->
+                    <div class="bubble-wrapper" id="easy-bubble">
+                        <div class="bubble liquid-bubble easy-bubble">
+                            <div class="bubble-content">
+                                <span class="bubble-value" id="easy-value">0/0</span>
+                                <span class="bubble-label">EASY</span>
+                            </div>
+                            <div class="bubble-reflection"></div>
+                            <div class="liquid-effect"></div>
+                        </div>
+                        <div class="bubble-energy"></div>
+                        <div class="bubble-particles"></div>
+                    </div>
+                    
+                    <!-- Medium Bubble -->
+                    <div class="bubble-wrapper" id="medium-bubble">
+                        <div class="bubble liquid-bubble medium-bubble">
+                            <div class="bubble-content">
+                                <span class="bubble-value" id="medium-value">0/0</span>
+                                <span class="bubble-label">MEDIUM</span>
+                            </div>
+                            <div class="bubble-reflection"></div>
+                            <div class="liquid-effect"></div>
+                        </div>
+                        <div class="bubble-energy"></div>
+                        <div class="bubble-particles"></div>
+                    </div>
+                    
+                    <!-- Hard Bubble -->
+                    <div class="bubble-wrapper" id="hard-bubble">
+                        <div class="bubble liquid-bubble hard-bubble">
+                            <div class="bubble-content">
+                                <span class="bubble-value" id="hard-value">0/0</span>
+                                <span class="bubble-label">HARD</span>
+                            </div>
+                            <div class="bubble-reflection"></div>
+                            <div class="liquid-effect"></div>
+                        </div>
+                        <div class="bubble-energy"></div>
+                        <div class="bubble-particles"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Submission Sphere -->
+            <div class="submission-sphere quantum-panel">
+                <div class="sphere-header">
+                    <h3><i class="fa-solid fa-globe"></i> SUBMISSION QUANTUM FIELD</h3>
+                    <div class="sphere-legend">
+                        <span class="legend-item"><span class="legend-dot" style="background: #00ffff;"></span> 1-10</span>
+                        <span class="legend-item"><span class="legend-dot" style="background: #ff00ff;"></span> 11-25</span>
+                        <span class="legend-item"><span class="legend-dot" style="background: #ffff00;"></span> 26-50</span>
+                        <span class="legend-item"><span class="legend-dot" style="background: #ff0000;"></span> 51+</span>
+                    </div>
+                </div>
+                <div class="sphere-container" id="sphere-container"></div>
+                <div class="sphere-stats" id="sphere-stats"></div>
+            </div>
+
+            <!-- Quantum Timeline -->
+            <div class="quantum-timeline quantum-panel">
+                <h3><i class="fa-solid fa-clock"></i> QUANTUM ACTIVITY LOG</h3>
+                <div class="timeline-quantum" id="submissions-list"></div>
+            </div>
         </div>
-        <div class="stats-card">
-          <!-- Directly populate card ffrom js  -->
-        </div>
-      </div>
-    </div>
 
+        <!-- Hacker Loading Animation with Sound -->
+        <div class="hacker-loading" id="loading">
+            <div class="loading-overlay"></div>
+            <div class="loading-content">
+                <div class="loading-scanner"></div>
+                <div class="loading-terminal">
+                    <div class="terminal-line">>_ ESTABLISHING SECURE CONNECTION...</div>
+                    <div class="terminal-line" id="loading-message">>_ INITIALIZING HACK SEQUENCE</div>
+                    <div class="terminal-line">>_ ENCRYPTION: <span class="blink">ACTIVE</span></div>
+                </div>
+                
+                <div class="loading-visual">
+                    <div class="hacker-grid"></div>
+                    <div class="hacker-globe">
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                        <div class="globe-core">
+                            <i class="fa-solid fa-skull"></i>
+                        </div>
+                    </div>
+                    <div class="binary-rain" id="binary-rain"></div>
+                </div>
+
+                <div class="loading-progress-container">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="loading-progress"></div>
+                    </div>
+                    <div class="progress-status">
+                        <span class="status-hex" id="progress-hex">0x00</span>
+                        <span class="status-percent" id="progress-percent">0%</span>
+                    </div>
+                </div>
+
+                <div class="loading-footer">
+                    <div class="footer-glitch">
+                        <span>>_ </span>
+                        <span id="typing-effect">ACCESSING MAINFRAME</span>
+                        <span class="cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty Quantum State -->
+        <div class="empty-quantum" id="empty-state">
+            <div class="quantum-void">
+                <div class="void-ring"></div>
+                <div class="void-ring"></div>
+                <div class="void-ring"></div>
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h2>AWAITING QUANTUM INPUT</h2>
+            <p>Enter credentials to access the mainframe</p>
+        </div>
+
+        <!-- Footer with Copyright -->
+        <footer class="quantum-footer">
+            <div class="footer-content">
+                <div class="copyright">
+                    <i class="fa-regular fa-copyright"></i> 2025 LeetMetric | Developed by 
+                    <a href="https://www.linkedin.com/in/bholushubhankaranokha" target="_blank" class="footer-link">
+                        Bholu Shubhankar Anokha
+                    </a>
+                </div>
+                <div class="footer-quote">
+                    <span class="quote-text">// HACK THE PLANET //</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
