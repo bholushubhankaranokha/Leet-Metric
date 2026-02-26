@@ -6,7 +6,7 @@ It was built to strengthen my understanding of JavaScript, API handling, and DOM
 
 
 ## 🚀 Live Demo
-(Add your live link here if deployed)
+🔗 https://bholushubhankaranokha.github.io/Leet-Metric/
 
 
 ## 🛠 Tech Stack
@@ -28,5 +28,7 @@ B.Tech – Artificial Intelligence & Data Science
 ## 📸 Project Preview
 
 ![LeetMetric Screenshot](./images/leet1.png)
+---
 ![LeetMetric Screenshot](./images/leet2.png)
+---
 ![LeetMetric Screenshot](./images/leet3.png)
